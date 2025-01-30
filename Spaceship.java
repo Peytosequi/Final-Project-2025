@@ -4,10 +4,12 @@ import java.util.Scanner;
 import java.util.List;
 
 public class Spaceship {
+    
     // Spaceship is a class that contains the following attributes: 
     String name; // Ship name
     List<String> astronauts; // Astronauts assigned to ship
     double fuel; // Fuel capacity of ship
+    double currentFuel; // Current fuel in the spaceship
 
     // Constructor to initialize the astronauts list
     public Spaceship() {
@@ -74,5 +76,37 @@ public class Spaceship {
 
         // Display spaceship data
         spaceship.displaySpaceshipData();
+    
+
+
+// Method to add a spaceship to the system
+public static Spaceship addSpaceship() {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter Spaceship's name: ");
+    String name = scanner.nextLine();
+
+    System.out.print("Enter spaceship's fuel capacity (in pounds): ");
+    double fuelCapacity = scanner.nextDouble();
+
+    // Create spaceship object with the provided name and fuel capacity
+    return new Spaceship(name, fuelCapacity);
+
+
+public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    // Adding a new spaceship
+    System.out.println("Spaceship Management System");
+    Spaceship spaceship = addSpaceship();
+
+    // Assigning astronauts
+    spaceship.assignAstronauts();
+
+    // Loading fuel
+    spaceship.loadFuel();
+
+    // Displaying spaceship data
+    spaceship.displaySpaceshipData();
     }
 }
