@@ -8,7 +8,7 @@ String phone;
 String NOK;
 String status;
 //DOB= Date of Birth
-int DOB;
+String DOB;
 int Snumber;
 double pay;
 double weight;
@@ -34,7 +34,10 @@ public void inputAstronautData() {
     status = scanner.nextLine();
 
     System.out.print("Enter Date of Birth (DOB): ");
-    DOB = scanner.nextInt();
+    while (!(DOB = scanner.nextLine()).matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\\\d{4}$")) {
+        System.out.println("Invalid date of birth. Please try again.");
+        System.out.println("Enter date of birth: ");
+    }
 
     System.out.print("Enter Serial number: ");
     Snumber = scanner.nextInt();
@@ -44,6 +47,8 @@ public void inputAstronautData() {
 
     System.out.print("Enter weight: ");
     weight = scanner.nextDouble();
+
+    scanner.close();
 }
 
 
