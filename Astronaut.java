@@ -12,6 +12,7 @@ int DOB;
 int Snumber;
 double pay;
 double weight;
+//
 public void inputAstronautData() {
     Scanner scanner = new Scanner(System.in);
 
@@ -49,18 +50,7 @@ public void inputAstronautData() {
 
 
 
-public static void main(String[] args) {
-    Astronaut astronaut = new Astronaut();
-    astronaut.inputAstronautData();
-    System.out.println("Name: " + astronaut.name);
-    System.out.println("Email: " + astronaut.email);
-    System.out.println("Phone: " + astronaut.phone);
-    System.out.println("Next of Kin (NOK): " + astronaut.NOK);
-    System.out.println("Status: " + astronaut.status);
-    System.out.println("Date of Birth (DOB): " + astronaut.DOB);
-    System.out.println("Serial number: " + astronaut.Snumber);
-    System.out.println("Pay: " + astronaut.pay);
-    System.out.println("Weight: " + astronaut.weight);
+
 
 
 
@@ -70,22 +60,3 @@ public static void main(String[] args) {
 
 
 }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
