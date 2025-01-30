@@ -34,7 +34,7 @@ public void inputAstronautData() {
     status = scanner.nextLine();
 
     System.out.print("Enter Date of Birth (DOB): ");
-    while (!(DOB = scanner.nextLine()).matches("^[0-9 /")) {
+    while (!(DOB = scanner.nextLine()).matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\\\d{4}$")) {
         System.out.println("Invalid date of birth. Please try again.");
         System.out.println("Enter date of birth: ");
     }
