@@ -1,5 +1,7 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
-public class Astronaut{
+public class Astronaut {
  //Astronaut is a class that contains the following attributes:
 String name;
 String email;
@@ -8,11 +10,17 @@ String phone;
 String NOK;
 String status;
 //DOB= Date of Birth
-String DOB;
+int DOB;
 int Snumber;
 double pay;
 double weight;
-//
+
+ // Static variable to keep track of the serial number count
+ private static int serialNumberCounter = 1;
+  // Constructor to initialize the serial number
+  public Astronaut() {
+    this.Snumber = serialNumberCounter++;
+}
 public void inputAstronautData() {
     Scanner scanner = new Scanner(System.in);
 
@@ -25,8 +33,12 @@ public void inputAstronautData() {
         System.out.print("Enter email: ");
     }
 
-    System.out.print("Enter phone: ");
-    phone = scanner.nextLine();
+    System.out.print("Enter phone (format: (000)-000-0000): ");
+    while (!(phone = scanner.nextLine()).matches("^\\(\\d{3}\\)-\\d{3}-\\d{4}$")) {
+        System.out.println("Invalid phone format. Please try again.");
+        System.out.print("Enter phone (format: (000)-000-0000): ");
+    }
+    
 
     System.out.print("Enter Next of Kin (NOK): ");
     NOK = scanner.nextLine();
@@ -35,13 +47,7 @@ public void inputAstronautData() {
     status = scanner.nextLine();
 
     System.out.print("Enter Date of Birth (DOB): ");
-    while (!(DOB = scanner.nextLine()).matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\\\d{4}$")) {
-        System.out.println("Invalid date of birth. Please try again.");
-        System.out.println("Enter date of birth: ");
-    }
-
-    System.out.print("Enter Serial number: ");
-    Snumber = scanner.nextInt();
+    DOB = scanner.nextInt();
 
     System.out.print("Enter pay: ");
     pay = scanner.nextDouble();
@@ -49,7 +55,25 @@ public void inputAstronautData() {
     System.out.print("Enter weight: ");
     weight = scanner.nextDouble();
 
-    scanner.close();
+   
+}
+    // Write data to PriviteAstronaut.tx
+public void writeDataToFile() {
+    try (FileWriter writer = new FileWriter("PriviteAstronaut.txt", true)) {
+        writer.write("Name: " + name + "\n");
+        writer.write("Email: " + email + "\n");
+        writer.write("Phone: " + phone + "\n");
+        writer.write("Next of Kin: " + NOK + "\n");
+        writer.write("Status: " + status + "\n");
+        writer.write("Date of Birth: " + DOB + "\n");
+        writer.write("Serial Number: " + Snumber + "\n");
+        writer.write("Pay: " + pay + "\n");
+        writer.write("Weight: " + weight + "\n");
+        writer.write("-------------------------------\n");
+    } catch (IOException e) {
+        System.out.println("An error occurred while writing to the file.");
+        e.printStackTrace();
+    }
 }
 
 
