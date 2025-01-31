@@ -4,11 +4,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 public class Launchprocess{
-
+ 
 private static boolean stopCountdown = false;
 
     public static void main(String[] args) {
-        // Setup JFrame for displaying the countdown
+       
         JFrame frame = new JFrame("Countdown Timer");
         JLabel label = new JLabel("Time Remaining: 10", SwingConstants.CENTER);
         label.setFont(label.getFont().deriveFont(40f));
