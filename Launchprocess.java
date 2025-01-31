@@ -1,13 +1,12 @@
 
-
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 
-public class Launchtimer{
+public class Launchprocess{
 
-    private static boolean stopCountdown = false;
-    private static boolean startCountdown = true;
+private static boolean stopCountdown = false;
+
     public static void main(String[] args) {
         // Setup JFrame for displaying the countdown
         JFrame frame = new JFrame("Countdown Timer");
@@ -30,16 +29,14 @@ public class Launchtimer{
         });
         frame.addKeyListener(new KeyAdapter() {
             @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
+            public void keyPressed(KeyEvent aKeyEvent) {
+                if (aKeyEvent.getKeyCode() == KeyEvent.VK_SHIFT) {
                     stopCountdown = false;
 
-                }
-            }
-        });
+             
 
         // Start the countdown in a separate thread
-        if (!stopCountdown && startCountdown) {
+        if (!stopCountdown) {
         Thread countdownThread = new Thread(() -> {
             int timeRemaining = 10;
             while (timeRemaining > 0 && !stopCountdown) {
@@ -49,9 +46,10 @@ public class Launchtimer{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
                 timeRemaining--;
             }
-            
+        
             if (timeRemaining == 0 && !stopCountdown) {
                 label.setText("Time's up!");
             }
@@ -60,6 +58,8 @@ public class Launchtimer{
         countdownThread.start();
     
         }
-
+    }
+}
+});
     }
 }
