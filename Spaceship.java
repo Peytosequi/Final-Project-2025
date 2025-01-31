@@ -30,11 +30,22 @@ public class Spaceship {
         System.out.println("Astronauts assigned successfully!")
     }
 
+<<<<<<< HEAD
     // Method to load fuel
     public void loadFuel(Scanner scanner) {
         boolean validInput = false;
         while (!validInput) {
             System.out.print("Enter fuel amount to load (in pounds): ");
+=======
+        // Input for spaceship name
+        System.out.println("Enter Spaceship's name: ");
+        name = scanner.nextLine();
+
+        // Input for spaceship fuel capactiry
+        System.out.print("Enter spaceship's fuel capacity (in liters): ");
+        boolean validFuel = false;
+        while (!validFuel) {
+>>>>>>> 6d5f4ca9490684d270afe40abfbaa7430b25c0fe
             try {
                 double fuelAmount = scanner.nextDouble();
                 if (fuelAmount <= 0) {
@@ -51,6 +62,23 @@ public class Spaceship {
                 scanner.nextLine(); // Clear invalid input
             }
         }
+<<<<<<< HEAD
+=======
+
+        // Input for astronauts assigned to the spaceship
+        scanner.nextLine(); // consume leftover newline
+        System.out.print("Enter number of astronauts: ");
+        int numAstronauts = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        for (int i = 0; i < numAstronauts; i++) {
+            System.out.print("Enter name of astronaut " + (i + 1) + ": ");
+            astronauts.add(scanner.nextLine());
+        }
+
+        // Closing the scanner object
+        scanner.close();
+>>>>>>> 6d5f4ca9490684d270afe40abfbaa7430b25c0fe
     }
 
     // Method to display spaceship information
@@ -103,7 +131,30 @@ public class Spaceship {
 
         // Display spaceship data
         spaceship.displaySpaceshipData();
+<<<<<<< HEAD
 
         scanner.close(); // Close scanner at the end
+=======
+    }
+
+    // Method to add a spaceship to the system
+    public void addSpaceship() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Spaceship's name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter spaceship's fuel capacity (in liters): ");
+        double fuelCapacity = scanner.nextDouble();
+        scanner.nextLine(); // Consume newline
+
+        // Create spaceship object with the provided name and fuel capacity
+        Spaceship spaceship = new Spaceship();
+        spaceship.name = name;
+        spaceship.fuel = fuelCapacity;
+
+        // Add spaceship to the system (this part depends on how you manage spaceships in your system)
+        // For example, you might have a list of spaceships in a class that manages them
+>>>>>>> 6d5f4ca9490684d270afe40abfbaa7430b25c0fe
     }
 }
