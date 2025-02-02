@@ -2,23 +2,30 @@
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
-
 public class Launchprocess{
  
 private static boolean stopCountdown = false;
-
+ private static JFrame MyFrame;
     public static void main(String[] args) {
-       
-        JFrame frame = new JFrame("Countdown Timer");
+       Launchprocess launchprocess = new Launchprocess();
+Launchprocess.Countdown();
+    }
+    //test to make sure I can make a button to interact with other frames
+
+
+
+        // Setup JFrame for displaying the countdown
+    public static void Countdown () {
+        JFrame MyFrame = new JFrame("countdown timer");
         JLabel label = new JLabel("Time Remaining: 10", SwingConstants.CENTER);
         label.setFont(label.getFont().deriveFont(40f));
-        frame.add(label);
-        frame.setSize(400, 200);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-
+        MyFrame.add(label);
+        MyFrame.setSize(400, 200);
+        MyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        MyFrame.setVisible(true);
+  
         // KeyListener to detect the spacebar press
-        frame.addKeyListener(new KeyAdapter() {
+        MyFrame.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -27,7 +34,7 @@ private static boolean stopCountdown = false;
                 }
             }
         });
-        frame.addKeyListener(new KeyAdapter() {
+        MyFrame.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent aKeyEvent) {
                 if (aKeyEvent.getKeyCode() == KeyEvent.VK_SHIFT) {
