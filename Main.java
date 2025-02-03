@@ -4,7 +4,7 @@ public class Main extends Astronaut  {
       a.inputAstronautData();
       a.writeDataToFile();
      Protect p= new Protect();
-     p.Privitefile();
+     p.PriviteFile();
      p.generateAndSavePassword();
      p.verifyPassword();
      

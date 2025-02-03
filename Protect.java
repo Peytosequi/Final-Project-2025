@@ -11,7 +11,7 @@ public class Protect extends Astronaut {
     private static final String PASSWORD_FILE = "password.txt";
     private static final int PASSWORD_LENGTH = 12;
 
-    public void Privitefile() {
+    public void PriviteFile() {
         try {
             File privite = new File("PriviteAstronaut.txt");
             if (privite.createNewFile()) {
