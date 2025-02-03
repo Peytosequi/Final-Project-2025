@@ -54,7 +54,7 @@ public class Protect extends Astronaut {
         return savedPassword.equals(inputPassword);
     }
 
-    private String generateRandomPassword(int length) {
+    public String generateRandomPassword(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+";
         SecureRandom random = new SecureRandom();
         StringBuilder password = new StringBuilder(length);
