@@ -1,0 +1,20 @@
+Name: DOE
+Email: DOE@Ggmail.com
+Phone: (989)-567-0987
+Next of Kin: sad
+Status: sad
+Date of Birth: 213
+Serial Number: 1
+Pay: 124.0
+Weight: 124.0
+-------------------------------
+Name: null
+Email: null
+Phone: null
+Next of Kin: null
+Status: null
+Date of Birth: 0
+Serial Number: 2
+Pay: 0.0
+Weight: 0.0
+-------------------------------
