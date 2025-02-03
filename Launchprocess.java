@@ -1,14 +1,27 @@
-
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+ 
+import java.awt.event.*;
 import javax.swing.*;
+
+
 public class Launchprocess{
  
 private static boolean stopCountdown = false;
- private static JFrame MyFrame;
+        private static JFrame MyFrame = new JFrame("countdown timer");
     public static void main(String[] args) {
-       Launchprocess launchprocess = new Launchprocess();
-Launchprocess.Countdown();
+        JFrame f=new JFrame("Button Example");  
+        JButton b=new JButton("Click Here");  
+        b.setBounds(50,100,95,30);
+    b.addActionListener(new ActionListener(){  
+        public void actionPerformed(ActionEvent e){  
+            Launchprocess.Countdown();   
+                }  
+            });  
+            f.add(b,SwingConstants.CENTER);  
+            f.setSize(400,400);  
+            f.setLayout(null);  
+            f.setVisible(true); 
+
+
     }
    
 
@@ -16,14 +29,16 @@ Launchprocess.Countdown();
 
         // Setup JFrame for displaying the countdown
     public static void Countdown () {
-        JFrame MyFrame = new JFrame("countdown timer");
         JLabel label = new JLabel("Time Remaining: 10", SwingConstants.CENTER);
         label.setFont(label.getFont().deriveFont(40f));
         MyFrame.add(label);
         MyFrame.setSize(400, 200);
         MyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MyFrame.setVisible(true);
-  
+        
+
+       
+        
         // KeyListener to detect the spacebar press
         MyFrame.addKeyListener(new KeyAdapter() {
             @Override
