@@ -16,7 +16,7 @@ Launchprocess.Countdown();
 
         // Setup JFrame for displaying the countdown
     public static void Countdown () {
-        JFrame MyFrame = new JFrame("countdown timer");
+        JFrame MyFrame = new JFrame("Countdown Timer");
         JLabel label = new JLabel("Time Remaining: 10", SwingConstants.CENTER);
         label.setFont(label.getFont().deriveFont(40f));
         MyFrame.add(label);
