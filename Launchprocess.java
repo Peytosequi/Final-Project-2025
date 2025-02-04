@@ -4,18 +4,28 @@ import javax.swing.*;
 
 
 public class Launchprocess{
- 
-private static boolean stopCountdown = false;
-        private static JFrame MyFrame = new JFrame("countdown timer");
+    private static boolean stopCountdown = false;
+    private static JFrame MyFrame = new JFrame("Countdown Timer");
+    private static JLabel label = new JLabel("Time Remaining: 10", SwingConstants.CENTER);
+    private static Thread countdownThread;  // Track the countdown thread
     public static void main(String[] args) {
         JFrame f=new JFrame("Button Example");  
         JButton b=new JButton("Click Here");  
         b.setBounds(50,100,95,30);
-    b.addActionListener(new ActionListener(){  
-        public void actionPerformed(ActionEvent e){  
-            Launchprocess.Countdown();   
-                }  
-            });  
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {  
+                stopCountdown = true;  // Stop any existing countdown
+                if (countdownThread != null && countdownThread.isAlive()) {
+                    try {
+                        countdownThread.join();  // Wait for the old thread to finish
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+                stopCountdown = false;  // Reset for the new countdown
+                Countdown();   
+            }  
+        });
             f.add(b,SwingConstants.CENTER);  
             f.setSize(400,400);  
             f.setLayout(null);  
@@ -29,14 +39,15 @@ private static boolean stopCountdown = false;
 
         // Setup JFrame for displaying the countdown
     public static void Countdown () {
-
-        JLabel label = new JLabel("Time Remaining: 10", SwingConstants.CENTER);
-        label.setFont(label.getFont().deriveFont(40f));
+        MyFrame.getContentPane().removeAll(); // Clear previous components
+        label.setText("Time Remaining: 10");
+        label.setFont(label.getFont().deriveFont(30f));
         MyFrame.add(label);
         MyFrame.setSize(400, 200);
         MyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MyFrame.setVisible(true);
-        
+        MyFrame.setFocusable(true);
+        MyFrame.requestFocus(); 
 
        
         
@@ -46,18 +57,11 @@ private static boolean stopCountdown = false;
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                     stopCountdown = true;
-                    label.setText("Countdown Stopped!");
+                    MyFrame.dispose();
                 }
             }
         });
-        MyFrame.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent aKeyEvent) {
-                if (aKeyEvent.getKeyCode() == KeyEvent.VK_SHIFT) {
-                    stopCountdown = false;
-
-             
-
+       
         // Start the countdown in a separate thread
         if (!stopCountdown) {
         Thread countdownThread = new Thread(() -> {
@@ -81,8 +85,8 @@ private static boolean stopCountdown = false;
         countdownThread.start();
     
         }
+    
+
+};
     }
-}
-});
-    }
-}
+
