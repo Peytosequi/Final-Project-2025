@@ -29,6 +29,7 @@ private static boolean stopCountdown = false;
 
         // Setup JFrame for displaying the countdown
     public static void Countdown () {
+
         JLabel label = new JLabel("Time Remaining: 10", SwingConstants.CENTER);
         label.setFont(label.getFont().deriveFont(40f));
         MyFrame.add(label);
