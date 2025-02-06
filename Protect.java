@@ -26,6 +26,17 @@ public class Protect extends Astronaut {
 
         writeDataToFile();
     }
+
+    public void writeDataToFile() {
+        try (FileWriter writer = new FileWriter("PriviteAstronaut.txt", true)) { // Open file in append mode
+            writer.write(getAstronautData());
+            writer.write("-------------------------------\n");
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file.");
+            e.printStackTrace();
+        }
+    }
+
     public void generateAndSavePassword() {
         String password = generateRandomPassword(PASSWORD_LENGTH);
         try (FileWriter writer = new FileWriter(PASSWORD_FILE)) {
@@ -54,7 +65,7 @@ public class Protect extends Astronaut {
         return savedPassword.equals(inputPassword);
     }
 
-    public String generateRandomPassword(int length) {
+    private String generateRandomPassword(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+";
         SecureRandom random = new SecureRandom();
         StringBuilder password = new StringBuilder(length);
@@ -64,5 +75,44 @@ public class Protect extends Astronaut {
         }
 
         return password.toString();
+    }
+
+    private String encryptData(String data, int shift) {
+      StringBuilder encrypted = new StringBuilder();
+
+      for (char c : data.toCharArray()) {
+        encrypted.append((char) (c + shift));
+      }
+
+      return encrypted.toString();
+    }
+
+    public void decryptAndDisplayData() {
+      if (!verifyPassword()) {
+        System.out.println("Incorrect password. Access denied.");
+        return;
+      }
+
+      String encryptedData;
+      try {
+        encryptedData = new String(Files.readAllBytes(Paths.get("PriviteAstronaut.txt")));
+      } catch (IOException e) {
+        System.out.println("An error occurred while reading the encrypted data file.");
+        e.printStackTrace();
+        return;
+      }
+
+      String decryptedData = decryptData(encryptedData, PASSWORD_LENGTH);
+      System.out.println("Decrypted Data: " + decryptedData);
+    }
+
+    private String decryptData(String data, int shift) {
+      StringBuilder decrypted = new StringBuilder();
+
+      for (char c : data.toCharArray()) {
+        decrypted.append((char) (c - shift));
+      }
+
+      return decrypted.toString();
     }
 }
