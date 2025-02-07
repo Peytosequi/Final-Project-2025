@@ -78,7 +78,8 @@ public class Launchprocess{
             }
         
             if (timeRemaining == 0 && !stopCountdown) {
-                label.setText("Time's up!");
+                label.setText("Blast off!");
+                System.out.println ();
             }
         });
 
