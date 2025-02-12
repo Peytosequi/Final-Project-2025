@@ -50,8 +50,15 @@ public void inputAstronautData() {
     System.out.print("Enter status: ");
     status = scanner.nextLine();
 
-    System.out.print("Enter Date of Birth (DOB): ");
-    DOB = scanner.nextInt();
+    System.out.print("Enter Date of Birth (DOB) (format: mm/dd/yyyy): ");
+    String dobInput = scanner.nextLine();
+    while (!dobInput.matches("^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/\\d{4}$")) {
+        System.out.println("Invalid DOB format. Please try again.");
+        System.out.print("Enter Date of Birth (DOB) (format: mm/dd/yyyy): ");
+        dobInput = scanner.nextLine();
+    } 
+    String[] dobParts = dobInput.split("/");
+    DOB = Integer.parseInt(dobParts[2] + dobParts[0] + dobParts[1]);
 
     System.out.print("Enter pay: ");
     pay = scanner.nextDouble();

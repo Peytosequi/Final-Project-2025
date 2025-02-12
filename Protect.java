@@ -8,6 +8,12 @@ import java.util.Scanner;
 
 public class Protect extends Astronaut {
 
+    // Assuming getAstronautData() should return some data about the astronaut
+    private String getAstronautData() {
+        // Replace with actual data retrieval logic
+        return "Astronaut Data";
+    }
+
     private static final String PASSWORD_FILE = "password.txt";
     private static final int PASSWORD_LENGTH = 12;
 

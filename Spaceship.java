@@ -19,6 +19,11 @@ public class Spaceship {
         this.astronauts = new ArrayList<>();
     }
 
+    // Default constructor
+    public Spaceship() {
+        // Initialization code
+    }
+
     // Method to assign astronauts
     public void assignAstronauts(Scanner scanner) {
         System.out.print("Enter astronaut names (separated by commas): ");
@@ -89,7 +94,7 @@ public class Spaceship {
     }
 
     // Main method
-    public static void main(String[] args) {
+    public void spaceshipstart() {
         Scanner scanner = new Scanner(System.in);
 
         // Adding a spaceship
