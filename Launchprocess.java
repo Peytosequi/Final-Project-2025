@@ -6,7 +6,8 @@ public class Launchprocess extends Main  {
    public static int i;
     public static void main(String[] args) {
    Astronaut a = new Astronaut();
-
+   Spaceship s = new Spaceship();
+   
    for (int i = 10; i >= 0; i--) {
     System.out.println(i);
     try {
@@ -15,7 +16,6 @@ public class Launchprocess extends Main  {
         e.printStackTrace();
     }
 }
-System.out.println("Blast off"); 
 
 
 
