@@ -26,12 +26,15 @@ public class Main extends Astronaut {
             switch (choice) {
                 case 1:
                     System.out.println("Managing password...");
+
                     break;
                 case 2:
                     System.out.println("Managing astronauts...");
+
                     break;
                 case 3:
                     System.out.println("Managing spaceships...");
+
                     break;
                 case 4:
                     System.out.println("Initiating launch process...");
@@ -39,13 +42,16 @@ public class Main extends Astronaut {
                     launch.startlaunch();
                     break;
                 case 5:
-                    System.out.println("Exiting program. Goodbye!");
-                    break;
+                System.out.println("Exiting program. Goodbye!");
+
+                 break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
         } while (choice != 5);
         
-        scanner.close();
+         scanner.close();
+       
+        
     }
-}
+} 
