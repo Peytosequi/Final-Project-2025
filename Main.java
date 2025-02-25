@@ -1,10 +1,11 @@
-
 import java.util.Scanner;
 
 public class Main extends Astronaut {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int choice = 1;
+        Protect p = new Protect();
+        
         
         do {
             System.out.println("\nAvailable operations:");
@@ -26,6 +27,9 @@ public class Main extends Astronaut {
             switch (choice) {
                 case 1:
                     System.out.println("Managing password...");
+                    FileManger f = new FileManger(); 
+                    f.retrieveData();
+
 
                     break;
                 case 2:
@@ -34,12 +38,14 @@ public class Main extends Astronaut {
                     break;
                 case 3:
                     System.out.println("Managing spaceships...");
-
+                    
                     break;
                 case 4:
                     System.out.println("Initiating launch process...");
                     Launchprocess launch = new Launchprocess();
                     launch.startlaunch();
+
+
                     break;
                 case 5:
                 System.out.println("Exiting program. Goodbye!");
