@@ -60,7 +60,8 @@ public class FileManager {
 
     // Method to fetch data from another method and store it in the file
     public void fetchAndStoreData() {
-        String data = getDataFromSource(); // Retrieve data from another method
+        Astronaut a = new Astronaut(); // Retrieve data from another method
+        
         storeData(data); // Store the retrieved data
     }
 
