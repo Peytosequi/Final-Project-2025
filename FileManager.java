@@ -3,22 +3,22 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class FileManager {
-
     private static final String STORAGE_FILE = "StorageData.txt";
+    private static final String SOURCE_FILE = "SourceData.txt";
 
     public FileManager() {
-        ensureFileExists();
+        ensureFileExists(STORAGE_FILE);
     }
 
-    private void ensureFileExists() {
-        File file = new File(STORAGE_FILE);
+    private void ensureFileExists(String filename) {
+        File file = new File(filename);
         try {
             if (!file.exists()) {
                 file.createNewFile();
-                System.out.println("Storage file created.");
+                System.out.println(filename + " created.");
             }
         } catch (IOException e) {
-            System.out.println("An error occurred while creating the storage file.");
+            System.out.println("An error occurred while creating " + filename);
             e.printStackTrace();
         }
     }
@@ -35,34 +35,43 @@ public class FileManager {
 
     public String retrieveData() {
         try {
-            return new String(Files.readAllBytes(Paths.get(STORAGE_FILE)));
+            String data = new String(Files.readAllBytes(Paths.get(STORAGE_FILE))).trim();
+            return data.isEmpty() ? null : data;
         } catch (IOException e) {
             System.out.println("An error occurred while retrieving data.");
             e.printStackTrace();
-            return "";
+            return null;
         }
     }
 
     public void clearData() {
-        try (FileWriter writer = new FileWriter(STORAGE_FILE)) { // Overwrite file
-            writer.write("");
-            System.out.println("Storage cleared successfully.");
+        storeData("");
+        System.out.println("Storage cleared successfully.");
+    }
+
+    private String fetchDataFromFile() {
+        try {
+            return new String(Files.readAllBytes(Paths.get(SOURCE_FILE))).trim();
         } catch (IOException e) {
-            System.out.println("An error occurred while clearing storage.");
+            System.out.println("An error occurred while reading source file.");
             e.printStackTrace();
+            return null;
         }
     }
 
-    // Simulated method that provides data from another source
-    private String getDataFromSource() {
-        return "Sample data retrieved from another method.";
-    }
-
-    // Method to fetch data from another method and store it in the file
     public void fetchAndStoreData() {
-        Astronaut a = new Astronaut(); // Retrieve data from another method
-        
-        storeData(data); // Store the retrieved data
+        String existingData = retrieveData();
+        if (existingData == null) { // If no data stored, fetch from source
+            String newData = fetchDataFromFile();
+            if (newData != null) {
+                storeData(newData);
+                System.out.println("Fetched data from source and stored it.");
+            } else {
+                System.out.println("No data available in source file.");
+            }
+        } else {
+            System.out.println("Data already stored. No need to fetch from source.");
+        }
     }
 
     public static void main(String[] args) {

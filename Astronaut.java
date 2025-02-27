@@ -1,13 +1,13 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 public class Astronaut {
- //Astronaut is a class that contains the following attributes:
-String name;
+ //Astronaut is a class that  contains the following attributes:
+public String name;
 String email;
 String phone;
 //NOK= Next of Kin

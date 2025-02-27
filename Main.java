@@ -27,7 +27,7 @@ public class Main extends Astronaut {
             switch (choice) {
                 case 1:
                     System.out.println("Managing password...");
-                    FileManger f = new FileManger(); 
+                    FileManager f = new FileManager(); 
                     f.retrieveData();
 
 

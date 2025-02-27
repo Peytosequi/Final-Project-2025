@@ -1,5 +1,7 @@
 
 
+
+
 public class Launchprocess {
    
     
@@ -13,6 +15,9 @@ public class Launchprocess {
     } catch (InterruptedException e) {
         e.printStackTrace();
     }
+    Astronaut a = new Astronaut();
+   
+    System.out.println();
 }
 
 
