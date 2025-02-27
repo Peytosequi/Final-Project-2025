@@ -28,7 +28,7 @@ public class Main extends Astronaut {
                 case 1:
                     System.out.println("Managing password...");
                     FileManager f = new FileManager(); 
-                    f.retrieveData();
+                    f.main(args);
 
 
                     break;

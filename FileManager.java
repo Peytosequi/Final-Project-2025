@@ -73,10 +73,16 @@ public class FileManager {
             System.out.println("Data already stored. No need to fetch from source.");
         }
     }
-
     public static void main(String[] args) {
         FileManager fileManager = new FileManager();
         fileManager.fetchAndStoreData(); // Fetch and store data
-        System.out.println("Stored Data: " + fileManager.retrieveData()); // Retrieve and print stored data
+        String storedData = fileManager.retrieveData();
+        System.out.println("Stored Data:");
+        if (storedData != null) {
+            System.out.println(storedData);
+        } else {
+            System.out.println("No data found.");
+        }
     }
 }
+
