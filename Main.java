@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 public class Main extends Astronaut {
+    public Main() {
+        super();
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int choice = 1;
