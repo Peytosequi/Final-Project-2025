@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,8 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 public class Astronaut {
  //Astronaut is a class that  contains the following attributes:
-public String name;
-String email;
+static String name;
+static String email;
 String phone;
 //NOK= Next of Kin
 String NOK;
@@ -18,6 +19,21 @@ int DOB;
 int Snumber;
 double pay;
 double weight;
+
+  public static void main(String[] args) {
+    
+    try {
+     BufferedWriter f = new BufferedWriter(new FileWriter("test1.txt"));
+        f.write(name);
+        f.close();
+
+    
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    
+  }  
+}
 
  // Static variable to keep track of the serial number count
  private static int serialNumberCounter = 1;
