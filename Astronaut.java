@@ -1,3 +1,4 @@
+
 import java.sql.*;
 import java.util.Scanner;
 
@@ -22,6 +23,7 @@ public class Astronaut {
         this.DOB = "01/01/1970";
         this.pay = 0.0;
         this.weight = 0.0;
+
     }
 
     // Parameterized Constructor
@@ -187,7 +189,6 @@ public class Astronaut {
             }
         }
     }
-
     // Main method
     public static void main(String[] args) {
         createTable(); // Ensure table exists
