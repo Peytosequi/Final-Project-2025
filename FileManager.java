@@ -7,15 +7,15 @@ public class FileManager {
 
     
   public static void main(String[] args) {
-    String bro = "HELLO WORLD";
+    String bro = "\nhello world";
     try {
-     BufferedWriter f = new BufferedWriter(new FileWriter("test.txt"));
+     BufferedWriter f = new BufferedWriter(new FileWriter("test.txt",true));
         f.write(bro);
         f.close();
 
     
-    } catch (IOException e) {
-        e.printStackTrace();
+    } catch (IOException ioe) {
+        ioe.printStackTrace();
     }
     
   }  
