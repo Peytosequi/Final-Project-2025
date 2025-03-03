@@ -13,7 +13,21 @@ public class Spaceship {
         private static double fuelCapacity; // Fuel Capacity (in pounds)
             private static double currentFuel; // Current Fuel Level
                 private List<String> astronauts; // List of Assigned Astronauts
-            
+                public String getName() {
+                    return name;
+                }
+                
+                public double getFuelCapacity() {
+                    return fuelCapacity;
+                }
+                
+                public double getCurrentFuel() {
+                    return currentFuel;
+                }
+                
+                public List<String> getAstronauts() {
+                    return astronauts;
+                }
                 // Constructor
                 public Spaceship(String name, double fuelCapacity) {
                     this.name = name;

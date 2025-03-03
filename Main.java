@@ -4,13 +4,16 @@ public class Main extends Astronaut {
     public Main() {
         super();
     }
-    public static void main(String[] args) {
+ 
+   
+
+    public static void main(String [] args) {
         Scanner scanner = new Scanner(System.in);
         int choice = 1;
         Protect p = new Protect();
         Spaceship s = new Spaceship();
        s.spaceshipstart();
-        
+           
         do {
             System.out.println("\nAvailable operations:");
             System.out.println("1. Manage password");
@@ -31,10 +34,7 @@ public class Main extends Astronaut {
             switch (choice) {
                 case 1:
                     System.out.println("Managing password...");
-                    FileManager f = new FileManager(); 
-                    f.main(args);
-
-
+                   
                     break;
                 case 2:
                     System.out.println("Managing astronauts...");
@@ -46,11 +46,16 @@ public class Main extends Astronaut {
                     break;
                 case 4:
                     System.out.println("Initiating launch process...");
-                    Launchprocess launch = new Launchprocess();
+                
+                    
+                    Launchprocess launch = new Launchprocess(s);
                     launch.startlaunch();
+                
+                    
 
 
                     break;
+
                 case 5:
                 System.out.println("Exiting program. Goodbye!");
 
