@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class Launchprocess {
     private Spaceship spaceship;
@@ -67,20 +66,5 @@ public class Launchprocess {
         System.out.println("\n❌ MISSION FAILURE! The spaceship only reached " + distance + " meters before fuel depletion.");
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Create a spaceship
-        Spaceship spaceship = new Spaceship("Apollo", 5000);
-
-        spaceship.assignAstronauts(scanner);
-        spaceship.loadFuel(scanner);
-        spaceship.displaySpaceshipData();
-
-        // Pass spaceship object
-        Launchprocess launch = new Launchprocess(spaceship);
-        launch.startlaunch(); // Start countdown and launch sequence
-
-        scanner.close();
-    }
+ 
 }

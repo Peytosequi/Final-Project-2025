@@ -129,7 +129,7 @@ public class Spaceship {
                     spaceship.displaySpaceshipData();
     
                     try {
-         BufferedWriter f = new BufferedWriter(new FileWriter("PrivatebSpaceship.txt",true));
+         BufferedWriter f = new BufferedWriter(new FileWriter("PrivateSpaceship.txt",true));
             f.write(name);
         f.close();
 
