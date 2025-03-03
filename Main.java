@@ -10,6 +10,8 @@ public class Main extends Astronaut {
     public static void main(String [] args) {
         Scanner scanner = new Scanner(System.in);
         int choice = 1;
+        Astronaut a= new Astronaut();
+        a.AstronautMenu();
         Protect p = new Protect();
         Spaceship s = new Spaceship();
        s.spaceshipstart();
@@ -38,11 +40,11 @@ public class Main extends Astronaut {
                     break;
                 case 2:
                     System.out.println("Managing astronauts...");
-
+                    a.AstronautMenu();
                     break;
                 case 3:
                     System.out.println("Managing spaceships...");
-                    
+                    s.spaceshipstart();
                     break;
                 case 4:
                     System.out.println("Initiating launch process...");

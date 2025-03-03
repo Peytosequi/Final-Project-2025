@@ -1,4 +1,20 @@
 {
     "msg.shellSession.startLanguage": "sql",
-    "msg.editor.theming.decorationSet": "alternative"
+    "msg.editor.theming.decorationSet": "alternative",
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 33060,
+            "driver": "MySQL",
+            "name": "MYSQL",
+            "username": "root",
+            "password": "ZS#I@px5*aM9*S",
+            "database": "space_program"
+        }
+    ]
 }
