@@ -1,1 +1,0 @@
-Sample data retrieved from another method.
